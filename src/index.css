@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, inviting palette */
+    --background: 40 33% 98%;
+    --foreground: 30 20% 15%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 30 20% 15%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 30 20% 15%;
+
+    /* Warm amber primary */
+    --primary: 35 92% 50%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Soft cream secondary */
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 30 20% 25%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 30 15% 45%;
+
+    --accent: 25 85% 55%;
+    --accent-foreground: 40 33% 98%;
+
+    /* Success green for completed items */
+    --success: 145 65% 42%;
+    --success-foreground: 145 65% 98%;
+
+    /* Mood colors */
+    --mood-low: 0 70% 60%;
+    --mood-normal: 45 90% 55%;
+    --mood-high: 145 65% 50%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 35 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(30 20% 15% / 0.08), 0 4px 16px -4px hsl(30 20% 15% / 0.12);
+    --shadow-card: 0 4px 12px -4px hsl(30 20% 15% / 0.1), 0 8px 24px -8px hsl(30 20% 15% / 0.15);
+    --shadow-hover: 0 8px 24px -8px hsl(30 20% 15% / 0.15), 0 16px 40px -16px hsl(30 20% 15% / 0.2);
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(35 92% 50%) 0%, hsl(25 85% 55%) 100%);
+    --gradient-sunrise: linear-gradient(135deg, hsl(40 90% 65%) 0%, hsl(25 85% 55%) 50%, hsl(350 75% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(40 40% 99%) 0%, hsl(40 30% 97%) 100%);
+
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 30 20% 25%;
+    --sidebar-primary: 35 92% 50%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 40 25% 92%;
+    --sidebar-accent-foreground: 30 20% 25%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 35 92% 50%;
+  }
+
+  .dark {
+    --background: 30 15% 10%;
+    --foreground: 40 25% 95%;
+
+    --card: 30 15% 13%;
+    --card-foreground: 40 25% 95%;
+
+    --popover: 30 15% 13%;
+    --popover-foreground: 40 25% 95%;
+
+    --primary: 35 90% 55%;
+    --primary-foreground: 30 15% 10%;
+
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 30 12% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 25 80% 50%;
+    --accent-foreground: 40 33% 98%;
+
+    --success: 145 60% 45%;
+    --success-foreground: 145 65% 10%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 12% 22%;
+    --input: 30 12% 22%;
+    --ring: 35 90% 55%;
+
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 12px -4px hsl(0 0% 0% / 0.4);
+    --shadow-hover: 0 8px 24px -8px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 30 15% 12%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 35 90% 55%;
+    --sidebar-primary-foreground: 30 15% 10%;
+    --sidebar-accent: 30 12% 18%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 30 12% 22%;
+    --sidebar-ring: 35 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border;
+    box-shadow: var(--shadow-card);
+    background: var(--gradient-card);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium text-primary-foreground transition-all duration-200;
+    background: var(--gradient-warm);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .checkbox-custom {
+    @apply w-6 h-6 rounded-lg border-2 border-border flex items-center justify-center cursor-pointer transition-all duration-300;
+  }
+
+  .checkbox-custom.checked {
+    @apply border-success bg-success;
+    animation: checkPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .mood-indicator {
+    @apply w-12 h-12 rounded-full cursor-pointer transition-all duration-300 flex items-center justify-center;
+  }
+
+  .mood-indicator:hover {
+    transform: scale(1.1);
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-foreground flex items-center gap-2;
+  }
+
+  .task-item {
+    @apply flex items-center gap-3 p-3 rounded-lg transition-all duration-200 hover:bg-secondary/50;
+  }
+
+  .task-item.completed {
+    @apply opacity-60;
+  }
+
+  .task-item.completed .task-text {
+    @apply line-through text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Safe area for mobile devices */
+.safe-area-pb {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  button, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input, textarea, select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}

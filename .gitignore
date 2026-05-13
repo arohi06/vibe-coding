@@ -1,0 +1,69 @@
+# Node modules
+node_modules/
+
+# Build output / binaries
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Bin directories and files
+bin/
+*/bin/
+*.bin
+*.exe
+*.dll
+*.so
+*.dylib
+*.obj
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Tailwind cache/config
+.tailwindcache/
+
+# JSON cache/config files (ignore only generated ones)
+cache.json
+*.cache
+*.tmp.json
+
+# Keep essential configs tracked (do NOT ignore these)
+!package.json
+!tsconfig.json
+!tsconfig.app.json
+!tailwind.config.js
+
+# TypeScript build artifacts
+*.tsbuildinfo
+# Keep .ts source files tracked!
+# Ignore compiled JS if emitted alongside TS
+*.js
+*.js.map
+
+# Coverage reports
+coverage/
+*.lcov
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+*.tgz
